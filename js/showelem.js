@@ -17,6 +17,11 @@ function showElems() {
 		} else {
 			hide(`upg${i}`);
 		}
+		if (game.upgrades[i].bought) {
+			show(`bupg${i}`);
+		} else {
+			hide(`bupg${i}`);
+		}
 	}
 	
 	show(`tab${game.tab}`);

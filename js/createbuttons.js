@@ -55,5 +55,21 @@ function createButtons() {
 		d.appendChild(img);
 		
 		document.getElementById('upgradesdiv').appendChild(d);
+		
+		d = document.createElement('div');
+		d.className = 'upgrade';
+		d.id = `bupg${i}`;
+		d.setAttribute('onmousedown', `buyUpg(${i})`);
+		d.setAttribute('onmouseover',`setTooltipTo(createTooltipUpg(${i}))`);
+		d.setAttribute('onmouseout', 'setTooltipTo("")');
+		
+		img = document.createElement('img');
+		img.src = game.upgrades[i].iconSrc;
+		img.width = '46';
+		img.height = '46';
+		
+		d.appendChild(img);
+		
+		document.getElementById('bu').appendChild(d);
 	}
 }
