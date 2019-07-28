@@ -60,7 +60,7 @@ class Game {
 		this.autosaveintv = 30;
 		document.getElementById('asintv').value = this.autosaveintv;
 
-		this.vers = '1.1.0';
+		this.vers = '1.1.2';
 		
 		if (data) {
 			try {
