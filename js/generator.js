@@ -148,7 +148,7 @@ class Generator {
 	multMult(v) {
 		this.mult = this.mult.multiply(new Decimal(v));
 	}
-
+	
 	canBuy(n) {
 		if (new Decimal(n).gt(new Decimal(1e10))) {
 			return false;
