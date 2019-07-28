@@ -2,12 +2,12 @@ function createButtons() {
 	for (let i = 0; i < 16; i++) {
 		for (let j = 0; j < 8; j++) {
 			let butt = document.createElement('button');
-
+			
 			let para1 = document.createElement('p');
 			para1.innerHTML = `${game.generators[i][j].name}`;
 			para1.className = 'para1';
 			para1.id = `gb${i}${j}1`;
-      
+			
 			let para2 = document.createElement('p');
 			para2.innerHTML = `${displayNum(game.generators[i][j].amount, true)}`;
 			para2.className = 'para2';

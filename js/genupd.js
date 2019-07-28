@@ -17,12 +17,12 @@ function updGens() {
 			}
 		}
 	}
-  
+	
 	for (let i = 0; i < game.upgrades.length; i++) {
 		if (game.upgrades[i].canBuy()) {
 			document.getElementById(`upg${i}`).style.opacity = 1;
 		} else {
 			document.getElementById(`upg${i}`).style.opacity = 0.3;
 		}
-  }
+	}
 }

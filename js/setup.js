@@ -19,7 +19,7 @@ class Game {
 				this.generators[i][j] = new Generator(i, j);
 			}
 		}
-
+		
 		// Begin Data Objects
 		this.upgradeData = [
 			{
@@ -47,7 +47,7 @@ class Game {
 		for (let i = 0; i < this.upgradeData.length; i++) {
 			this.upgrades[i] = new Upgrade(this.upgradeData[i].name, this.upgradeData[i].cost, false, this.upgradeData[i].icon, this.upgradeData[i].onBuy, this.upgradeData[i].visReq);
 		}
-
+		
 		this.buyAmount = new Decimal(1);
 		document.getElementById('bulk').value = this.buyAmount;
 		this.buymax = false;
