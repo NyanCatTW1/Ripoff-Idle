@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<!--Title-->
-		<title>Ripoff Idle v0.0.0</title>
+    <title>Ripoff Idle</title>
 		
 		<!--Meta Data-->
 		<meta name='description' content='How many idle games can I ripoff in one?'>
@@ -22,18 +22,23 @@
 		<script src='js/debug.js'></script>
 		<script src='js/createbuttons.js'></script>
 		<script src='js/cps.js'></script>
+		<script src='js/upgrade.js'></script>
 		
 		<!--CSS-->
 		<link rel='stylesheet' type='text/css' href='css/stylesheet.css'>
 	</head>
 	
 	<body>
+		<div id='loading'></div>
 		<div id='game'>
+			<div id='autosave'>
+				Your Game Was Saved
+			</div>
 			<div id='topbar'>
-				<p id='version'>Ripoff Idle v0.0.0 by Reinhardt</p>
+				<p id='version'>Ripoff Idle v1.1.0 by Reinhardt</p>
 				<div id='tickspeeddiv'>
 					<p>Reduce the tick interval by 11%</p>
-					<button id='tickspeedbuy'>Cost: 100</button>
+					<button id='tickspeedbuy'>Cost: <p class='cost'>100</p></button>
 				</div>
 			</div>
 			
@@ -49,6 +54,9 @@
 						<div id='tabs'>
 							<button onclick='switchTab(0)' class='switch1'>Stats</button>
 							<button onclick='switchTab(1)' class='switch1'>Settings</button>
+							<button onclick='switchTab(1)' class='switch1'>Settings</button>
+							<button onclick='switchTab(1)' class='switch1'>Settings</button>
+							<button onclick='switchTab(1)' class='switch1'>Settings</button>
 						</div>
 						<div id='subtabs'>
 							<div id='tab0'>
@@ -61,9 +69,9 @@
 								<button onclick='switchSubTab(4)' class='switch2'>Save Info</button>
 							</div>
 						</div>
-						<div id='autosave'>
-							Your Game Was Saved
-						</div>
+					</div>
+					<hr>
+					<div id='tooltip'>
 					</div>
 				</div>
 				
@@ -87,11 +95,11 @@
 						</div>
 						<!-- Save Info -->
 						<div id='subtab4'>
-							<button onclick='save()'>Save</button><br>
+							<button onclick='save()'>Save</button>
 							<button onclick='load()'>Load</button><br>
-							<button onclick='wipe()'>Wipe Save</button><br>
 							<button onclick='toggleas()'>Toggle Autosave</button><p id='asstate'> On</p><br>
-							<span id='autosavetime'><p>Autosave every </p><input id='asintv' value='30' style='width: 30px' /><p> seconds</p>
+							<span id='autosavetime'><p>Autosave every </p><input id='asintv' value='30' style='width: 30px' /><p> seconds</p></span><br><br><br><br>
+							<button onclick='wipe()' style='border-color: red; color: red'>Wipe Save</button>
 						</div>
 				</div>
 				
@@ -139,7 +147,7 @@
 				
 				<div id='right'>
 					<div id='upgradesdiv'>
-						<p>Upgrades</p>
+						<p id='upgTxt'>Upgrades</p>
 					</div>
 					
 					<div id='buildingsdiv'>

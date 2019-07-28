@@ -115,15 +115,22 @@ class Generator {
 				this.baseCps = new Decimal(1.5e11);
 		}
 		this.dim = dim;
+		if (this.dim == 0) {
+			this.creates = 'cookies';
+		} else {
+			this.creates = `${this.dim}D ${this.type}`;
+		}
 		this.name = `${this.dim + 1}D ${this.type}`;
 		this.dimBasePrice = this.basePrice.multiply(this.multPerDim.pow(this.dim));
 		this.price = this.basePrice.multiply(this.multPerDim.pow(this.dim)).multiply(new Decimal(1.15).pow(this.bought));
 		this.totalCps = this.baseCps.multiply(this.amount).multiply(this.mult);
+		this.eachCps = this.baseCps.multiply(this.mult);
 	}
 	
 	update() {
 		this.price = this.basePrice.multiply(this.multPerDim.pow(this.dim)).multiply(new Decimal(1.15).pow(this.bought));
 		this.totalCps = this.baseCps.multiply(this.amount).multiply(this.mult);
+		this.eachCps = this.baseCps.multiply(this.mult);
 	}
 	
 	incAmount(q) {
@@ -138,6 +145,10 @@ class Generator {
 		this.mult = new Decimal(v);
 	}
 	
+	multMult(v) {
+		this.mult = this.mult.multiply(new Decimal(v));
+	}
+
 	canBuy(n) {
 		if (new Decimal(n).gt(new Decimal(1e10))) {
 			return false;

@@ -7,7 +7,7 @@ function doCps() {
 	game.cookies = game.cookies.add(cps.div(20));
 	for (let i = 0; i < 16; i++) {
 		for (let j = 1; j < 8; j++) {
-			game.generators[i][j - 1].amount = game.generators[i][j - 1].amount.add(game.generators[i][j].totalCps.div(20));
+			game.generators[i][j - 1].incAmount(game.generators[i][j].totalCps.div(20));
 		}
 	}
 }

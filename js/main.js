@@ -20,18 +20,18 @@
 	thanks to https://www.messletters.com/en/big-text/ for the ASCII letters
 */
 
-//Chuck your data into the depths of the localStorage variable...
+// Chuck your data into the depths of the localStorage variable...
 function save() {
 	localStorage.setItem('save', JSON.stringify(game));
 	var x = document.getElementById("autosave");
 	x.className = "show";
 	setTimeout(function () {
 		x.className = x.className.replace("show", "");
-	}, 1500);
+	}, 1000);
 	setTimeout(save, game.autosaveintv * 1000);
 }
 
-//Retrieve your data from the depths of the localStorage variable...
+// Retrieve your data from the depths of the localStorage variable...
 function load() {
 	if (JSON.parse(localStorage.getItem('save'))) {
 		game = new Game(JSON.parse(localStorage.getItem('save')));
@@ -41,7 +41,7 @@ function load() {
 	}
 }
 
-//Clear the save file
+// Clear the save file
 function wipe() {
 	game = new Game();
 	save();
@@ -63,4 +63,5 @@ function gameLoop() {
 	doCps();
 	game.autosaveintv = new Decimal(document.getElementById('asintv').value);
 	game.buyAmount = new Decimal(document.getElementById('bulk').value);
+	hide('loading');
 }
