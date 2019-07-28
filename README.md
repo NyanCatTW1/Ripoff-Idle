@@ -1,0 +1,2 @@
+# Ripoff-Idle
+Yay!
