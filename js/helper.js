@@ -12,6 +12,7 @@ function switchShopTab(i) {
 
 function cookieClick() {
 	game.cookies = game.cookies.add(game.clickPro);
+	game.totalProdCookies = game.totalProdCookies.add(game.clickPro);
 	game.cookieClicks++;
 }
 
