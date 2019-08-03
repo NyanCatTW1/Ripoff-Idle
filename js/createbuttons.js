@@ -59,7 +59,6 @@ function createButtons() {
 		d = document.createElement('div');
 		d.className = 'upgrade';
 		d.id = `bupg${i}`;
-		d.setAttribute('onmousedown', `buyUpg(${i})`);
 		d.setAttribute('onmouseover',`setTooltipTo(createTooltipUpg(${i}))`);
 		d.setAttribute('onmouseout', 'setTooltipTo("")');
 		

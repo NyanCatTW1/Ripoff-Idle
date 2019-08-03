@@ -6,6 +6,7 @@ class Game {
 	constructor(data) {
 		this.cookies = new Decimal(0);
 		this.cookieClicks = 0;
+		this.totalProdCookies = new Decimal(0);
 		this.clickPro = new Decimal(1);
 		this.cps = new Decimal(0);
 		this.tickspeedrcp = new Decimal(1);
@@ -60,13 +61,14 @@ class Game {
 		this.autosaveintv = 30;
 		document.getElementById('asintv').value = this.autosaveintv;
 
-		this.vers = '1.1.2';
+		this.vers = '1.1.3';
 		
 		if (data) {
 			try {
 				this.cookies = new Decimal(data.cookies);
 				this.clickPro = new Decimal(data.clickPro);
 				this.cookieClicks = data.cookieClicks;
+				this.totalProdCookies = new Decimal(data.totalProdCookies);
 				this.tickspeedrcp = new Decimal(data.tickspeedrcp);
 				
 				for (let i = 0; i < 16; i++) {
@@ -93,6 +95,7 @@ class Game {
 				document.getElementById('asintv').value = this.autosaveintv;
 			} catch(err) {
 				console.log(err);
+				wipe();
 			}
 		}
 	}
