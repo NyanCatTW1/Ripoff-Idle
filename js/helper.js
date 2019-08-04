@@ -106,6 +106,12 @@ function createTooltipUpg(id) {
 	<i><small>${game.upgradeData[id].purpose}</small></i>`;
 }
 
+
+function createTooltipAch(id) {
+	return `${game.achievementData[id].name}<br>
+	<i><small>${game.achievementData[id].unlockTxt}</small></i>`;
+}
+
 function createTooltipGen(typeId, dim) {
 	return `${game.generators[typeId][dim].name}&nbsp&nbsp&nbsp&nbsp<p class='cost'>${displayNum(game.generators[typeId][dim].price, true)}</p><br>
 	<small><i>each ${game.generators[typeId][dim].name} produces ${game.generators[typeId][dim].eachCps} ${game.generators[typeId][dim].creates} per second,<br>

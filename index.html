@@ -3,13 +3,13 @@
 	<head>
 		<!--Title-->
 		<title>Ripoff Idle</title>
-		
+
 		<!--Meta Data-->
 		<meta name='description' content='How many idle games can I ripoff in one?'>
 		<meta name='keywords' content='idle game ripoff'>
 		<meta name='author' content='Reinhardt'>
 		<meta charset='UTF-8'>
-		
+
 		<!--JavaScript-->
 		<script src='js/break_eternity.js'></script>
 		<script src='js/main.js'></script>
@@ -23,16 +23,20 @@
 		<script src='js/createbuttons.js'></script>
 		<script src='js/cps.js'></script>
 		<script src='js/upgrade.js'></script>
-		
+		<script src='js/achievement.js'></script>
+		<script src='js/popup.js'></script>
+
 		<!--CSS-->
 		<link rel='stylesheet' type='text/css' href='css/stylesheet.css'>
 	</head>
-	
+
 	<body>
-		<div id='loading' style='color: white'>If this is up for more than 5 seconds refresh.</div>
+		<div id='loading' style='color: white'>If this is up for more than 5 seconds refresh.<br>If all else fails, press f12, go into console and type wipe();, press enter, and refresh.</div>
 		<div id='game'>
 			<div id='autosave'>
 				Your Game Was Saved
+			</div>
+			<div id='popups'>
 			</div>
 			<div id='topbar'>
 				<p id='version'>Ripoff Idle v1.1.0 by Reinhardt</p>
@@ -41,7 +45,7 @@
 					<button id='tickspeedbuy'>Cost: <p class='cost'>100</p></button>
 				</div>
 			</div>
-			
+
 			<div id='columns'>
 				<div id='left'>
 					<div id='cookiediv'>
@@ -49,7 +53,7 @@
 						<img onmousedown='cookieClick()' src='assets/img/cookie.png' width='250' height='250' id='cookie'></img>
 						<hr>
 					</div>
-					
+
 					<div id='selectdiv'>
 						<div id='tabs'>
 							<button onclick='switchTab(0)' class='switch1'>Stats</button>
@@ -74,7 +78,7 @@
 					<div id='tooltip'>
 					</div>
 				</div>
-				
+
 				<div id='mid1'>
 					<!-- STATS -->
 						<!-- Statistics -->
@@ -89,8 +93,10 @@
 						</div>
 						<!-- Achievements -->
 						<div id='subtab2'>
+							<p>Achievements</p>
+							<div id='ua'></div>
 						</div>
-					
+
 					<!-- SETTINGS -->
 						<!-- Options -->
 						<div id='subtab3'>
@@ -104,7 +110,7 @@
 							<button onclick='wipe()' style='border-color: red; color: red'>Wipe Save</button>
 						</div>
 				</div>
-				
+
 				<div id='mid2'>
 					<div id='shopdiv'>
 						<span id='bulkspan'><p>Buy Amount: </p><input id='bulk' value='1' style='width: 90px;' /><button onclick='togglebm()'>Toggle Buy Max</button><p id='bmstate'> Off</p></span>
@@ -141,17 +147,17 @@
 						<div class='genshop' id='FractalEngineShop'>
 						</div>
 					</div>
-					
+
 					<div id='galaxydiv'>
 						<hr>
 					</div>
 				</div>
-				
+
 				<div id='right'>
 					<div id='upgradesdiv'>
 						<p id='upgTxt'>Upgrades</p>
 					</div>
-					
+
 					<div id='buildingsdiv'>
 						<hr>
 						<p>Buildings</p>
@@ -213,8 +219,8 @@
 				</div>
 			</div>
 		</div>
-		
-		
+
+
 		<script>
 			let game;
 			init();

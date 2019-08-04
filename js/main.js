@@ -1,6 +1,6 @@
 /*
 	Welcome to the main JS file!
-	
+
 	Regardless of if your here to
 	find out how to cheat or something,
 	I'm going to (hopefully) comment
@@ -8,15 +8,15 @@
 
 	If I forgot to, good luck reading
 	my spaghetti code ;)
-	
-	  _____    _                    __    __     _____       _   _        
-	 |  __ \  (_)                  / _|  / _|   |_   _|     | | | |       
-	 | |__) |  _   _ __     ___   | |_  | |_      | |     __| | | |   ___ 
+
+	  _____    _                    __    __     _____       _   _
+	 |  __ \  (_)                  / _|  / _|   |_   _|     | | | |
+	 | |__) |  _   _ __     ___   | |_  | |_      | |     __| | | |   ___
 	 |  _  /  | | |  _ \   / _ \  |  _| |  _|     | |    / _  | | |  / _ \
 	 | | \ \  | | | |_) | | (_) | | |   | |      _| |_  | (_| | | | |  __/
 	 |_|  \_\ |_| |  __/   \___/  |_|   |_|     |_____|  \__ _| |_|  \___|
-				  | |                                                     
-				  |_|    
+				  | |
+				  |_|
 	thanks to https://www.messletters.com/en/big-text/ for the ASCII letters
 */
 
@@ -61,6 +61,9 @@ function gameLoop() {
 	showElems();
 	updGens();
 	doCps();
+	for (let i of game.achievements) {
+		i.updUnlock();
+	}
 	game.autosaveintv = new Decimal(document.getElementById('asintv').value);
 	game.buyAmount = new Decimal(document.getElementById('bulk').value);
 	hide('loading');
