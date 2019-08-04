@@ -87,7 +87,6 @@ class Game {
 				this.tickspeedrcp = new Decimal(data.tickspeedrcp);
 				
 				for (let i = 0; i < 16; i++) {
-					this.generators[i] = [];
 					for (let j = 0; j < 8; j++) {
 						this.generators[i][j] = new Generator(i, j, data.generators[i][j].amount, data.generators[i][j].bought, 1);
 					}
