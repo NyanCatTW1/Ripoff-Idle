@@ -1,6 +1,6 @@
 /*
 	Welcome to the main JS file!
-
+	
 	Regardless of if your here to
 	find out how to cheat or something,
 	I'm going to (hopefully) comment
@@ -8,15 +8,15 @@
 
 	If I forgot to, good luck reading
 	my spaghetti code ;)
-
-	  _____    _                    __    __     _____       _   _
-	 |  __ \  (_)                  / _|  / _|   |_   _|     | | | |
-	 | |__) |  _   _ __     ___   | |_  | |_      | |     __| | | |   ___
+	
+	  _____    _                    __    __     _____       _   _        
+	 |  __ \  (_)                  / _|  / _|   |_   _|     | | | |       
+	 | |__) |  _   _ __     ___   | |_  | |_      | |     __| | | |   ___ 
 	 |  _  /  | | |  _ \   / _ \  |  _| |  _|     | |    / _  | | |  / _ \
 	 | | \ \  | | | |_) | | (_) | | |   | |      _| |_  | (_| | | | |  __/
 	 |_|  \_\ |_| |  __/   \___/  |_|   |_|     |_____|  \__ _| |_|  \___|
-				  | |
-				  |_|
+				  | |                                                     
+				  |_|    
 	thanks to https://www.messletters.com/en/big-text/ for the ASCII letters
 */
 
@@ -28,7 +28,9 @@ function save() {
 	setTimeout(function () {
 		x.className = x.className.replace("show", "");
 	}, 1000);
-	setTimeout(save, game.autosaveintv * 1000);
+	if (game.autosave) {
+		setTimeout(save, game.autosaveintv * 1000);
+	}
 }
 
 // Clear the save file

@@ -18,6 +18,7 @@ function cookieClick() {
 
 function toggleas() {
 	game.autosave = !game.autosave;
+	save();
 }
 
 function togglebm() {
