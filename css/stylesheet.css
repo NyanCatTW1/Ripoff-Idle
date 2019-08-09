@@ -28,6 +28,10 @@ html, body {
 	font-family: "Courier New", Courier, monospace;
 }
 
+body {
+	overflow: hidden;
+}
+
 * {
 	font-family: "Courier New", Courier, monospace;
 }
@@ -252,7 +256,7 @@ hr {
 	left: 50%;
 	margin-left: -125px;
 	bottom: 5px;
-	z-index: 10000;
+	z-index: 1000000000000000;
 }
 
 .popup {
@@ -262,7 +266,8 @@ hr {
 	border-style: outset;
 	border-width: 2px;
 	border-color: silver;
-	line-height: 46px;
+	word-break: break-word;
+	padding: 2px;
 }
 
 .genshop {

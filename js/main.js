@@ -31,20 +31,21 @@ function save() {
 	setTimeout(save, game.autosaveintv * 1000);
 }
 
+// Clear the save file
+function wipe() {
+	delete localStorage['save'];
+	setup();
+	save();
+}
+
 // Retrieve your data from the depths of the localStorage variable...
 function load() {
-	if (JSON.parse(localStorage.getItem('save'))) {
+	if (localStorage.getItem('save') != undefined && localStorage.getItem('save') != 'undefined' && localStorage.getItem('save') != null) {
 		game = new Game(JSON.parse(localStorage.getItem('save')));
 		return true;
 	} else {
 		return false;
 	}
-}
-
-// Clear the save file
-function wipe() {
-	game = new Game();
-	save();
 }
 
 function init() {

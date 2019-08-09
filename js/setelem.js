@@ -1,8 +1,13 @@
 function setElems() {
 	setElem('version', `Ripoff Idle v${game.vers} by Reinhardt`);
 	setElem('cookiecount', `${displayNum(game.cookies, true)}`);
+	
+	setElem('statcookies', `Cookies: ${displayNum(game.cookies, true)}`);
+	setElem('stattotalcookies', `Total Baked Cookies: ${displayNum(game.totalProdCookies, true)}`);
 	setElem('statcookieclicks', `Cookie Clicks: ${game.cookieClicks}`);
 	setElem('statcps', `Cookies per Second: ${displayNum(game.cps)}`);
+	
+	
 	setElem('tooltip', game.tooltip);
 	document.getElementById('tooltip').style.fontSize = 'initial';
 	let tempSize = 100;

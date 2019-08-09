@@ -13,15 +13,19 @@ class AchievementPopup {
 		img.width = '46';
 		img.height = '46';
 		img.style.float = 'left';
+		img.style.marginRight = '5px';
 		
 		let txt = document.createElement('p');
 		txt.innerHTML = this.name;
-		txt.style.float = 'left';
 		txt.style.marginLeft = '5px';
-		txt.style.fontSize = '20px';
+		txt.style.fontSize = '15px';
 		
 		d.appendChild(img);
 		d.appendChild(txt);
+		d.addEventListener('click', function() {
+			document.getElementById('popups').removeChild(d);
+			delete this;
+		});
 		document.getElementById('popups').appendChild(d);
 		
 		setTimeout(function() {
