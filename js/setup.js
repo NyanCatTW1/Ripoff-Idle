@@ -20,38 +20,53 @@ class Game {
 				this.generators[i][j] = new Generator(i, j);
 			}
 		}
+    
+		//Begin Data Objects
 
-		// Begin Data Objects
 		this.upgradeData = [
 			{
-				name: 'upg0',
-				cost: new Decimal(10),
+				name: 'Thin Fingers',
+				cost: new Decimal(100),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => this.generators[0][0].multMult(2),
 				visReq: () => this.generators[0][0].amount.gte(1),
 				purpose: 'Multiplies 1D cursor efficiency by 2.'
 			},
 			{
-				name: 'upg1',
-				cost: new Decimal(10),
+				name: 'Two Thin Hands',
+				cost: new Decimal(1000),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => this.generators[0][0].multMult(2),
-				visReq: () => this.cookies.gte(10),
+				visReq: () => this.generators[0][0].amount.gte(10),
+				purpose: 'Multiplies 1D cursor efficiency by 2.'
+			},
+			{
+				name: 'Ten Thin Hands',
+				cost: new Decimal(10000),
+				icon: 'assets/img/cookie.png',
+				onBuy: () => this.generators[0][0].multMult(2),
+				visReq: () => this.generators[0][0].amount.gte(50),
 				purpose: 'Multiplies 1D cursor efficiency by 2.'
 			}
 		]
 
 		this.achievementData = [
 			{
-				name: 'ach0',
+				name: 'I Have a Cookie',
 				icon: 'assets/img/cookie.png',
 				unlockReq: () => this.totalProdCookies.gte(1),
 				unlockTxt: 'Bake 1 cookie.'
+			},
+			{
+				name: 'Double the Calories',
+				icon: 'assets/img/cookie.png',
+				unlockReq: () => this.totalProdCookies.gte(2),
+				unlockTxt: 'Bake 2 cookies.'
 			}
 		]
-
-		// End Data Objects
-
+		
+		//End Data Objects
+    
 		this.upgrades = [];
 
 		for (let i = 0; i < this.upgradeData.length; i++) {
@@ -76,9 +91,9 @@ class Game {
 		this.autosaveintv = 30;
 		document.getElementById('asintv').value = this.autosaveintv;
 
-		this.vers = '1.2.0';
+		this.vers = '1.2.2';
 		
-		if (data) {
+		if (data != undefined) {
 			try {
 				this.cookies = new Decimal(data.cookies);
 				this.clickPro = new Decimal(data.clickPro);
@@ -87,8 +102,13 @@ class Game {
 				this.tickspeedrcp = new Decimal(data.tickspeedrcp);
 
 				for (let i = 0; i < 16; i++) {
+					this.generators[i] = [];
 					for (let j = 0; j < 8; j++) {
-						this.generators[i][j] = new Generator(i, j, data.generators[i][j].amount, data.generators[i][j].bought, 1);
+						if (data.generators[i][j].amount && data.generators[i][j].bought) {
+							this.generators[i][j] = new Generator(i, j, data.generators[i][j].amount, data.generators[i][j].bought, 1);
+						} else {
+							this.generators[i][j] = new Generator(i, j, 0, 0, 1);
+						}
 					}
 				}
 
@@ -111,9 +131,8 @@ class Game {
 				this.autosave = data.autosave;
 				this.autosaveintv = data.autosaveintv;
 				document.getElementById('asintv').value = this.autosaveintv;
-			} catch(err) {
-				console.log(err);
-				wipe();
+			} catch(e) {
+			
 			}
 		}
 	}
