@@ -48,6 +48,10 @@ hr {
 	margin: 0;
 }
 
+a {
+	color: aqua;
+}
+
 #game {
 	width: 100%;
 	height: 100%;

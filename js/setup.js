@@ -13,6 +13,7 @@ class Game {
 		this.tooltip = '';
 		
 		this.generators = [];
+		this.unlockedGens = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
 		
 		for (let i = 0; i < 16; i++) {
 			this.generators[i] = [];
@@ -90,7 +91,7 @@ class Game {
 		this.autosaveintv = 30;
 		document.getElementById('asintv').value = this.autosaveintv;
 
-		this.vers = '1.2.3';
+		this.vers = '1.2.4';
 		
 		if (data != undefined) {
 			try {
@@ -108,6 +109,12 @@ class Game {
 						} else {
 							this.generators[i][j] = new Generator(i, j, 0, 0, 1);
 						}
+					}
+				}
+				
+				if (data.unlockedGens) {
+					for (let i = 0; i < 16; i++) {
+						this.unlockedGens[i] = data.unlockedGens[i];
 					}
 				}
 				
