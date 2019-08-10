@@ -12,6 +12,7 @@ function switchShopTab(i) {
 
 function cookieClick() {
 	game.cookies = game.cookies.add(game.clickPro);
+	game.cookiesFromClicks = game.cookiesFromClicks.add(game.clickPro);
 	game.totalProdCookies = game.totalProdCookies.add(game.clickPro);
 	game.cookieClicks++;
 }
@@ -44,26 +45,28 @@ function setElem(id, content) {
 }
 
 function displayNum(decimal, floor) {
-	if (floor) {
-		if (decimal.lt(1)) {
-			return decimal.floor().toPrecision(1);
-		} else if (decimal.lt(10)) {
-			return decimal.floor().toPrecision(1).toString().replace('+', '');
-		} else if (decimal.lt(100)) {
-			return decimal.floor().toPrecision(2).toString().replace('+', '');
-		} else {
-			return decimal.floor().toPrecision(3).toString().replace('+', '');
-		}
+	if (decimal instanceof Decimal){
+		if (floor) {
+			if (decimal.lt(1)) {
+				return decimal.floor().toPrecision(1);
+			} else if (decimal.lt(10)) {
+				return decimal.floor().toPrecision(1).toString().replace('+', '');
+			} else if (decimal.lt(100)) {
+				return decimal.floor().toPrecision(2).toString().replace('+', '');
+			} else {
+				return decimal.floor().toPrecision(3).toString().replace('+', '');
+			}
 
-	} else {
-		if (decimal.lt(1)) {
-			return decimal.toPrecision(1);
-		} else if (decimal.lt(10)) {
-			return decimal.toPrecision(2).toString().replace('+', '');
-		} else if (decimal.lt(100)) {
-			return decimal.toPrecision(3).toString().replace('+', '');
 		} else {
-			return decimal.toPrecision(3).toString().replace('+', '');
+			if (decimal.lt(1)) {
+				return decimal.toPrecision(1);
+			} else if (decimal.lt(10)) {
+				return decimal.toPrecision(2).toString().replace('+', '');
+			} else if (decimal.lt(100)) {
+				return decimal.toPrecision(3).toString().replace('+', '');
+			} else {
+				return decimal.toPrecision(3).toString().replace('+', '');
+			}
 		}
 	}
 }
@@ -84,26 +87,12 @@ function maxOf(typeId, dim) {
 	return Decimal.affordGeometricSeries(game.cookies, game.generators[typeId][dim].dimBasePrice, new Decimal(1.15), game.generators[typeId][dim].bought);
 }
 
-function exIfGame(func) {
-	if (game) {
-		func();
-	}
-}
-
 function multGen(typeId, dim, m) {
 	game.generators[typeId][dim].multMult(m);
 }
 
-function cookiesgte(n) {
-	return game.cookies.gte(new Decimal(n));
-}
-
-function dimcountgte(tid, dim, n) {
-	return game.generators[tid][dim].amount.gte(new Decimal(n));
-}
-
 function createTooltipUpg(id) {
-	return `${game.upgradeData[id].name}&nbsp&nbsp&nbsp&nbsp<p class='cost'>${displayNum(game.upgradeData[id].cost)}</p><br>
+	return `${game.upgradeData[id].name}&nbsp&nbsp&nbsp&nbsp<br><p class='cost'>${displayNum(game.upgradeData[id].cost)}</p><br>
 	<i><small>${game.upgradeData[id].purpose}</small></i>`;
 }
 
@@ -114,7 +103,7 @@ function createTooltipAch(id) {
 }
 
 function createTooltipGen(typeId, dim) {
-	return `${game.generators[typeId][dim].name}&nbsp&nbsp&nbsp&nbsp<p class='cost'>${displayNum(game.generators[typeId][dim].price, true)}</p><br>
+	return `${game.generators[typeId][dim].name}&nbsp&nbsp&nbsp&nbsp<br><p class='cost'>${displayNum(game.generators[typeId][dim].price, true)}</p><br>
 	<small><i>each ${game.generators[typeId][dim].name} produces ${game.generators[typeId][dim].eachCps} ${game.generators[typeId][dim].creates} per second,<br>
 	${displayNum(game.generators[typeId][dim].amount, true)} ${game.generators[typeId][dim].name}s are producing ${displayNum(game.generators[typeId][dim].totalCps)} ${game.generators[typeId][dim].creates} per second.</i></small>`;
 }
@@ -126,4 +115,65 @@ function setTooltipTo(n) {
 function isOverflown(e) {
 	el = document.getElementById(e);
     return el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth;
+}
+
+function mg(typeId, dim, c) {
+	if (game != undefined) {
+		game.generators[typeId][dim].multMult(c);
+	}
+}
+
+function mag(typeId, c) {
+	for (let i = 0; i < 8; i++) {
+		if (game != undefined) {
+			game.generators[typeId][i].multMult(c);
+		}
+	}
+}
+
+function cgte(c) {
+	if (game != undefined) {
+		return game.cookies.gte(c);
+	}
+}
+
+function tcgte(c) {
+	if (game != undefined) {
+		return game.totalProdCookies.gte(c);
+	}
+}
+
+function ggte(typeId, dim, c) {
+	if (game != undefined) {
+		return game.generators[typeId][dim].amount.gte(c);
+	}
+}
+
+function aggte(typeId, c) {
+	if (game != undefined) {
+		let amounts = game.generators[typeId].map(x => x.amount.floor());
+		let total = new Decimal(0);
+		amounts.forEach(function(x) {
+			total = total.add(x);
+		})
+		return total.gte(c);
+	}
+}
+
+function sortUpgrades() {
+	var div = document.querySelector('#upgradescontainer');
+	var upg = document.querySelectorAll('#upgradescontainer .upgrade');
+    var upgArr = [].slice.call(upg).sort(function (a, b) {
+        return game.upgrades[parseInt(a.id.replace('upg', ''))].cost.gt(game.upgrades[parseInt(b.id.replace('upg', ''))].cost) ? 1 : -1;
+    });
+    upgArr.forEach(function (p) {
+        div.appendChild(p);
+    });
+}
+
+function infCookies() {
+	if (confirm('Do you want 1e1000 cookies?')) {
+		game.cookies = new Decimal('1e1000');
+		window.open('html/cheater.html');
+	}
 }

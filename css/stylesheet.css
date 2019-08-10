@@ -52,6 +52,21 @@ a {
 	color: aqua;
 }
 
+sup {
+	font-size: small;
+	vertical-align: super;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+	height: 0px;
+    background: silver;
+}
+
+::-webkit-scrollbar-thumb {
+    background: grey;
+}
+
 #game {
 	width: 100%;
 	height: 100%;
@@ -139,14 +154,8 @@ a {
 }
 
 #shopdiv {
-	min-height: calc(100vh - 132px);
-	max-height: calc(100vh - 132px);
-}
-
-#galaxydiv {
-	width: 100%;
-	min-height: 100px;
-	max-height: 100px;
+	min-height: calc(100vh - 32px);
+	max-height: calc(100vh - 32px);
 }
 
 #upgradesdiv {
@@ -263,6 +272,13 @@ a {
 	z-index: 1000000000000000;
 }
 
+#cheater {
+	opacity: 0.02;
+	max-height: 1px !important;
+	padding: 0px;
+	border-width: 0px;
+}
+
 .popup {
 	position: relative;
 	height: 46px;
@@ -277,8 +293,8 @@ a {
 .genshop {
 	width: 100%;
 	margin-top: 4px;
-	min-height: calc(100vh - 154px);
-	max-height: calc(100vh - 154px);
+	min-height: calc(100vh - 54px);
+	max-height: calc(100vh - 54px);
 	overflow-y: auto;
 }
 
@@ -303,8 +319,8 @@ a {
 
 .upgrade {
 	display: inline-block;
-	width: 46px;
-	height: 46px;
+	width: 45px;
+	height: 45px;
 	background-color: darkgrey;
 	float: left;
 	border-style: outset;
@@ -318,8 +334,8 @@ a {
 
 .ach {
 	display: inline-block;
-	width: 46px;
-	height: 46px;
+	width: 45px;
+	height: 45px;
 	background-color: darkgrey;
 	float: left;
 	border-style: outset;
@@ -335,7 +351,7 @@ a {
 	background-image: url('../assets/img/cookie.png');
     background-size: 11px 11px;
     display: inline-block;
-    width: 11px; 
+    width: 11px;
     height: 11px;
     content:"";
 }
