@@ -69,7 +69,7 @@ class Game {
 			// All Cursors
 			{
 				name: 'Gotta Hand it to You',
-				cost: new Decimal(1e4),
+				cost: new Decimal(2e3),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(0, 2),
 				visReq: () => ggte(0, 1, 1),
@@ -77,7 +77,7 @@ class Game {
 			},
 			{
 				name: 'How Many Fingers?',
-				cost: new Decimal(1e6),
+				cost: new Decimal(1e5),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(0, 3),
 				visReq: () => ggte(0, 2, 1),
@@ -85,7 +85,7 @@ class Game {
 			},
 			{
 				name: 'True Pianist',
-				cost: new Decimal(1e8),
+				cost: new Decimal(5e6),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(0, 4),
 				visReq: () => ggte(0, 3, 1),
@@ -93,7 +93,7 @@ class Game {
 			},
 			{
 				name: 'Too Many Fingers',
-				cost: new Decimal(1e10),
+				cost: new Decimal(3e8),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(0, 5),
 				visReq: () => ggte(0, 4, 1),
@@ -101,7 +101,7 @@ class Game {
 			},
 			{
 				name: 'All of the Fingers',
-				cost: new Decimal(1e12),
+				cost: new Decimal(2e10),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(0, 6),
 				visReq: () => ggte(0, 5, 1),
@@ -109,7 +109,7 @@ class Game {
 			},
 			{
 				name: 'Tendonitis',
-				cost: new Decimal(1e14),
+				cost: new Decimal(1e12),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(0, 7),
 				visReq: () => ggte(0, 6, 1),
@@ -117,7 +117,7 @@ class Game {
 			},
 			{
 				name: 'Just One More Click',
-				cost: new Decimal(1e16),
+				cost: new Decimal(5e13),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(0, 8),
 				visReq: () => ggte(0, 7, 1),
@@ -175,7 +175,7 @@ class Game {
 			},	
 			{
 				name: 'Fat Grandmas',
-				cost: new Decimal(1e7),
+				cost: new Decimal(3e7),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(1, 3),
 				visReq: () => ggte(1, 2, 1),
@@ -183,7 +183,7 @@ class Game {
 			},	
 			{
 				name: 'Meta Grandmas',
-				cost: new Decimal(1e9),
+				cost: new Decimal(8e9),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(1, 4),
 				visReq: () => ggte(1, 3, 1),
@@ -191,7 +191,7 @@ class Game {
 			},	
 			{
 				name: 'Meta Meta Grandmas',
-				cost: new Decimal(1e11),
+				cost: new Decimal(2e12),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(1, 5),
 				visReq: () => ggte(1, 4, 1),
@@ -199,7 +199,7 @@ class Game {
 			},	
 			{
 				name: 'Meta Meta Meta Grandmas',
-				cost: new Decimal(1e13),
+				cost: new Decimal(5e14),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(1, 6),
 				visReq: () => ggte(1, 5, 1),
@@ -207,7 +207,7 @@ class Game {
 			},	
 			{
 				name: 'Meta<sup>4</sup> Grandmas',
-				cost: new Decimal(1e15),
+				cost: new Decimal(1e17),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(1, 7),
 				visReq: () => ggte(1, 6, 1),
@@ -215,7 +215,7 @@ class Game {
 			},	
 			{
 				name: 'Grandmas',
-				cost: new Decimal(1e17),
+				cost: new Decimal(3e19),
 				icon: 'assets/img/cookie.png',
 				onBuy: () => mag(1, 8),
 				visReq: () => ggte(1, 7, 1),
@@ -485,7 +485,7 @@ class Game {
 		this.autosaveintv = 10;
 		document.getElementById('asintv').value = this.autosaveintv;
 
-		this.vers = '1.3.0';
+		this.vers = '1.3.1';
 		
 		if (data != undefined) {
 			try {

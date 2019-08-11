@@ -21,13 +21,13 @@ class Generator {
 			case 0:
 				this.type = 'Cursor';
 				this.basePrice = new Decimal(15);
-				this.multPerDim = new Decimal(10);
+				this.multPerDim = new Decimal(50);
 				this.baseCps = new Decimal(0.1);
 				break;
 			case 1:
 				this.type = 'Grandma';
 				this.basePrice = new Decimal(100);
-				this.multPerDim = new Decimal(100);
+				this.multPerDim = new Decimal(250);
 				this.baseCps = new Decimal(1);
 				break;
 			case 2:
