@@ -49,8 +49,8 @@ function createButtons() {
 
 		let img = document.createElement('img');
 		img.src = game.upgrades[i].iconSrc;
-		img.width = '46';
-		img.height = '46';
+		img.width = '45';
+		img.height = '45';
 
 		d.appendChild(img);
 
@@ -64,8 +64,8 @@ function createButtons() {
 
 		img = document.createElement('img');
 		img.src = game.upgrades[i].iconSrc;
-		img.width = '46';
-		img.height = '46';
+		img.width = '45';
+		img.height = '45';
 
 		d.appendChild(img);
 
@@ -82,8 +82,8 @@ function createButtons() {
 
 		let img = document.createElement('img');
 		img.src = game.achievements[i].iconSrc;
-		img.width = '46';
-		img.height = '46';
+		img.width = '45';
+		img.height = '45';
 
 		d.appendChild(img);
 		document.getElementById('ua').appendChild(d);
