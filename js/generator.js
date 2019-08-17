@@ -15,8 +15,8 @@ class Generator {
 		} else {
 			this.mult = new Decimal(1);
 		}
-		
-		
+
+
 		switch(typeid) {
 			case 0:
 				this.type = 'Cursor';
@@ -126,29 +126,29 @@ class Generator {
 		this.totalCps = this.baseCps.multiply(this.amount).multiply(this.mult);
 		this.eachCps = this.baseCps.multiply(this.mult);
 	}
-	
+
 	update() {
 		this.price = this.basePrice.multiply(this.multPerDim.pow(this.dim)).multiply(new Decimal(1.15).pow(this.bought));
 		this.totalCps = this.baseCps.multiply(this.amount).multiply(this.mult);
 		this.eachCps = this.baseCps.multiply(this.mult);
 	}
-	
+
 	incAmount(q) {
 		this.amount = this.amount.add(q);
 	}
-	
+
 	incBought(q) {
 		this.bought = this.bought.add(q);
 	}
-	
+
 	setMult(v) {
 		this.mult = new Decimal(v);
 	}
-	
+
 	multMult(v) {
 		this.mult = this.mult.multiply(new Decimal(v));
 	}
-	
+
 	canBuy(n) {
 		if (new Decimal(n).gt(new Decimal(1e10))) {
 			return false;
@@ -156,11 +156,11 @@ class Generator {
 			return game.cookies.gte(Decimal.sumGeometricSeries(new Decimal(n), this.dimBasePrice, new Decimal(1.15), this.bought).floor());
 		}
 	}
-	
+
 	costForN(n) {
 		return Decimal.sumGeometricSeries(new Decimal(n), this.dimBasePrice, new Decimal(1.15), this.bought).floor()
 	}
-	
+
 	buy(n) {
 		if (this.canBuy(n)) {
 			game.cookies = game.cookies.subtract(this.costForN(n));

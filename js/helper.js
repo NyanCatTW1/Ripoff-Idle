@@ -182,6 +182,6 @@ function buyTick() {
 	if (cgte(game.tpsc)) {
 		game.cookies = game.cookies.subtract(game.tpsc);
 		game.tpsc = game.tpsc.multiply(10);
-		game.tps = game.tps.divide(0.89);	
+		game.tps = game.tps.divide(0.89);
 	}
 }

@@ -13,17 +13,17 @@ class Game {
 		this.tps = new Decimal(20);
 		this.tpsc = new Decimal(100);
 		this.tooltip = '';
-		
+
 		this.generators = [];
 		this.unlockedGens = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-		
+
 		for (let i = 0; i < 16; i++) {
 			this.generators[i] = [];
 			for (let j = 0; j < 8; j++) {
 				this.generators[i][j] = new Generator(i, j);
 			}
 		}
-		
+
 		// Begin Data Objects
 		this.upgradeData = [
 			// 1D Cursors
@@ -173,7 +173,7 @@ class Game {
 				onBuy: () => mag(1, 2),
 				visReq: () => ggte(1, 1, 1),
 				purpose: 'Multiplies grandma efficiency by 2.'
-			},	
+			},
 			{
 				name: 'Fat Grandmas',
 				cost: new Decimal(3e7),
@@ -181,7 +181,7 @@ class Game {
 				onBuy: () => mag(1, 3),
 				visReq: () => ggte(1, 2, 1),
 				purpose: 'Multiplies grandma efficiency by 3.'
-			},	
+			},
 			{
 				name: 'Meta Grandmas',
 				cost: new Decimal(8e9),
@@ -189,7 +189,7 @@ class Game {
 				onBuy: () => mag(1, 4),
 				visReq: () => ggte(1, 3, 1),
 				purpose: 'Multiplies grandma efficiency by 4.'
-			},	
+			},
 			{
 				name: 'Meta Meta Grandmas',
 				cost: new Decimal(2e12),
@@ -197,7 +197,7 @@ class Game {
 				onBuy: () => mag(1, 5),
 				visReq: () => ggte(1, 4, 1),
 				purpose: 'Multiplies grandma efficiency by 5.'
-			},	
+			},
 			{
 				name: 'Meta Meta Meta Grandmas',
 				cost: new Decimal(5e14),
@@ -205,7 +205,7 @@ class Game {
 				onBuy: () => mag(1, 6),
 				visReq: () => ggte(1, 5, 1),
 				purpose: 'Multiplies grandma efficiency by 6.'
-			},	
+			},
 			{
 				name: 'Meta<sup>4</sup> Grandmas',
 				cost: new Decimal(1e17),
@@ -713,7 +713,7 @@ class Game {
 				purpose: 'Multiplies temple efficiency by 8.'
 			}
 		]
-		
+
 		this.achievementData = [
 			// Cookie Achievements
 			{
@@ -949,35 +949,35 @@ class Game {
 				unlockTxt: 'Have an 8D grandma<br>"This isn\'t even my final form!"'
 			}
 		]
-		
+
 		// End Data Objects
-		
+
 		this.upgrades = [];
-		
+
 		for (let i = 0; i < this.upgradeData.length; i++) {
 			this.upgrades[i] = new Upgrade(this.upgradeData[i].name, this.upgradeData[i].cost, false, this.upgradeData[i].icon, this.upgradeData[i].onBuy, this.upgradeData[i].visReq);
 		}
-		
+
 		this.achievements = [];
-		
+
 		for (let i = 0; i < this.achievementData.length; i++) {
 			this.achievements[i] = new Achievement(i, this.achievementData[i].name, this.achievementData[i].icon, this.achievementData[i].unlockReq, false);
 		}
-		
+
 		this.buyAmount = new Decimal(1);
 		document.getElementById('bulk').value = this.buyAmount;
 		this.buymax = false;
-		
+
 		this.tab = 0;
 		this.subtab = 0;
 		this.shoptab = 0;
-		
+
 		this.autosave = true;
 		this.autosaveintv = 10;
 		document.getElementById('asintv').value = this.autosaveintv;
 
 		this.vers = '1.3.2-b';
-		
+
 		if (data != undefined) {
 			try {
 				this.cookies = new Decimal(data.cookies);
@@ -987,7 +987,7 @@ class Game {
 				this.totalProdCookies = new Decimal(data.totalProdCookies);
 				this.tps = new Decimal(data.tps);
 				this.tpsc = new Decimal(data.tpsc);
-				
+
 				for (let i = 0; i < data.generators.length; i++) {
 					this.generators[i] = [];
 					for (let j = 0; j < data.generators[i].length; j++) {
@@ -998,29 +998,29 @@ class Game {
 						}
 					}
 				}
-				
+
 				if (data.unlockedGens) {
 					for (let i = 0; i < 16; i++) {
 						this.unlockedGens[i] = data.unlockedGens[i];
 					}
 				}
-				
+
 				for (let i = 0; i < data.upgrades.length; i++) {
 					this.upgrades[i] = new Upgrade(this.upgradeData[i].name, this.upgradeData[i].cost, data.upgrades[i].bought, this.upgradeData[i].icon, this.upgradeData[i].onBuy, this.upgradeData[i].visReq);
 				}
-				
+
 				for (let i = 0; i < data.achievements.length; i++) {
 					this.achievements[i] = new Achievement(i, this.achievementData[i].name, this.achievementData[i].icon, this.achievementData[i].unlockReq, data.achievements[i].unlocked);
 				}
-				
+
 				this.buyAmount = new Decimal(data.buyAmount);
 				document.getElementById('bulk').value = this.buyAmount;
 				this.buymax = data.buymax;
-				
+
 				this.tab = data.tab;
 				this.subtab = data.subtab;
 				this.shoptab = data.shoptab;
-				
+
 				this.autosave = data.autosave;
 				this.autosaveintv = data.autosaveintv;
 				document.getElementById('asintv').value = this.autosaveintv;
