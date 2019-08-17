@@ -56,6 +56,9 @@ function init() {
 	}
 	save();
 	createButtons();
+	for (let i of game.upgrades) {
+		i.testBought();
+	}
 	let loop = setInterval(gameLoop, 50);
 }
 

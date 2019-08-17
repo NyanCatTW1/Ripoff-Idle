@@ -116,7 +116,7 @@ class Generator {
 		}
 		this.dim = dim;
 		if (this.dim == 0) {
-			this.creates = 'cookies';
+			this.creates = 'cookie';
 		} else {
 			this.creates = `${this.dim}D ${this.type}`;
 		}
