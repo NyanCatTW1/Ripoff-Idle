@@ -104,8 +104,8 @@ function createTooltipAch(id) {
 
 function createTooltipGen(typeId, dim) {
 	return `${game.generators[typeId][dim].name}&nbsp&nbsp&nbsp&nbsp<br><p class='cost'>${displayNum(game.generators[typeId][dim].price, true)}</p><br>
-	<small><i>each ${game.generators[typeId][dim].name} produces ${displayNum(game.generators[typeId][dim].eachCps.div(new Decimal(400).divide(game.tps)))} ${game.generators[typeId][dim].creates}s per second,<br>
-	${displayNum(game.generators[typeId][dim].amount, true)} ${game.generators[typeId][dim].name}s are producing ${displayNum(game.generators[typeId][dim].totalCps.div(new Decimal(400).divide(game.tps)))} ${game.generators[typeId][dim].creates}s per second.</i></small>`;
+	<small><i>each ${game.generators[typeId][dim].name} produces ${displayNum(game.generators[typeId][dim].eachCps.div(new Decimal(20).divide(game.tps)))} ${game.generators[typeId][dim].creates}s per second,<br>
+	${displayNum(game.generators[typeId][dim].amount, true)} ${game.generators[typeId][dim].name}s are producing ${displayNum(game.generators[typeId][dim].totalCps.div(new Decimal(20).divide(game.tps)))} ${game.generators[typeId][dim].creates}s per second.</i></small>`;
 }
 
 function setTooltipTo(n) {
