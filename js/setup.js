@@ -976,7 +976,7 @@ class Game {
 		this.autosaveintv = 10;
 		document.getElementById('asintv').value = this.autosaveintv;
 
-		this.vers = '1.3.2';
+		this.vers = '1.3.2-b';
 		
 		if (data != undefined) {
 			try {
