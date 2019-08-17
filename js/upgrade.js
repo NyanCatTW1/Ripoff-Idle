@@ -6,9 +6,13 @@ class Upgrade {
 		this.visReq = visReq;
 		this.iconSrc = icon;
 		this.bought = bought;
-		
-		if (bought) {
+		this.be = false;
+	}
+	
+	testBought() {
+		if (!this.be && this.bought) {
 			this.onBuy();
+			this.be = true;
 		}
 	}
 	

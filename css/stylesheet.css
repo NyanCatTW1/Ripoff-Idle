@@ -112,6 +112,11 @@ sup {
 	border-width: 1px;
 	border-color: white;
 	float: left;
+	overflow-y: auto;
+}
+
+#mid1::-webkit-scrollbar-thumb {
+    background: darkgrey;
 }
 
 #mid2 {
@@ -227,6 +232,7 @@ sup {
 	-webkit-transition: opacity 1.5s;
 	transition: opacity 1.5s;
 	z-index: 10000000000000000;
+	pointer-events: none;
 }
 
 #autosave.show {

@@ -1,5 +1,7 @@
 function setElems() {
 	setElem('version', `Ripoff Idle v${game.vers} by Reinhardt`);
+	setElem('tps', `TPS: ${displayNum(game.tps)}&nbsp&nbsp`);
+	setElem('tpsc', `${displayNum(game.tpsc)}`);
 	setElem('cookiecount', `${displayNum(game.cookies, true)}`);
 
 	if (game.subtab == 0) {
