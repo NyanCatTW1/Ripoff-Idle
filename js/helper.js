@@ -87,6 +87,14 @@ function maxOf(typeId, dim) {
 	return Decimal.affordGeometricSeries(game.cookies, game.generators[typeId][dim].dimBasePrice, new Decimal(1.15), game.generators[typeId][dim].bought);
 }
 
+function maxTick() {
+	return Decimal.affordGeometricSeries(game.cookies, new Decimal(100), new Decimal(10), game.tsu);
+}
+
+function costMaxTick() {
+	return Decimal.sumGeometricSeries(new Decimal(maxTick()), new Decimal(100), new Decimal(10), game.tsu).floor();
+}
+
 function multGen(typeId, dim, m) {
 	game.generators[typeId][dim].multMult(m);
 }
@@ -183,5 +191,15 @@ function buyTick() {
 		game.cookies = game.cookies.subtract(game.tpsc);
 		game.tpsc = game.tpsc.multiply(10);
 		game.tps = game.tps.divide(0.89);
+		game.tsu = game.tsu.add(1);
 	}
+}
+
+function bmt() {
+	let c = costMaxTick();
+	let m = maxTick();
+	game.cookies = game.cookies.subtract(c);
+	game.tpsc = game.tpsc.multiply(new Decimal(10).pow(m));
+	game.tps = game.tps.divide(new Decimal(0.89).pow(m));
+	game.tsu = game.tsu.add(m);
 }

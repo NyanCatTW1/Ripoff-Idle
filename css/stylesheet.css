@@ -53,7 +53,7 @@ a {
 }
 
 sup {
-	font-size: small;
+	font-size: small; 
 	vertical-align: super;
 }
 
@@ -211,7 +211,7 @@ sup {
 	position: absolute;
 }
 
-#tickspeedbuy {
+#tickspeedbuy #tickspeedbuymax {
 	height: 22px;
 	line-height: 18px;
 	font-size: 14px;
@@ -355,9 +355,9 @@ sup {
 
 .cost::before {
 	background-image: url('../assets/img/cookie.png');
-    background-size: 11px 11px;
+    background-size: 10px 10px;
     display: inline-block;
-    width: 11px;
-    height: 11px;
+    width: 10px; 
+    height: 10px;
     content:"";
 }

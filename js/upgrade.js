@@ -33,6 +33,7 @@ class Upgrade {
 			this.bought = true;
 			game.cookies = game.cookies.subtract(this.cost);
 			this.onBuy();
+			game.boughtUpgrades++;
 		}
 	}
 }

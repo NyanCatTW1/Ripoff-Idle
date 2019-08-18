@@ -3,13 +3,13 @@
 	<head>
 		<!--Title-->
 		<title>Ripoff Idle</title>
-
+		
 		<!--Meta Data-->
 		<meta name='description' content='How many idle games can I ripoff in one?'>
 		<meta name='keywords' content='idle game ripoff'>
 		<meta name='author' content='Reinhardt'>
 		<meta charset='UTF-8'>
-
+		
 		<!--JavaScript-->
 		<script src='js/break_eternity.js'></script>
 		<script src='js/main.js'></script>
@@ -25,11 +25,11 @@
 		<script src='js/upgrade.js'></script>
 		<script src='js/achievement.js'></script>
 		<script src='js/popup.js'></script>
-
+		
 		<!--CSS-->
 		<link rel='stylesheet' type='text/css' href='css/stylesheet.css'>
 	</head>
-
+	
 	<body>
 		<div id='loading' style='color: white'>If this is up for more than 30 seconds refresh.<br>If all else fails, press f12, go into console and type wipe();, press enter, and refresh.</div>
 		<div id='game'>
@@ -43,10 +43,10 @@
 				<div id='tickspeeddiv'>
 					<p id='tps'>TPS: 20</p>
 					<p>Reduce the tick interval by 11%</p>
-					<button id='tickspeedbuy' onclick='buyTick()'>Cost: <p class='cost' id='tpsc'>100</p></button>
+					<button id='tickspeedbuymax' onclick='bmt()'>Buy Max</button><button id='tickspeedbuy' onclick='buyTick()'>Cost: <p class='cost' id='tpsc'>100</p></button>
 				</div>
 			</div>
-
+			
 			<div id='columns'>
 				<div id='left'>
 					<div id='cookiediv'>
@@ -54,7 +54,7 @@
 						<img onmousedown='cookieClick()' src='assets/img/cookie.png' width='250' height='250' id='cookie'></img>
 						<hr>
 					</div>
-
+					
 					<div id='selectdiv'>
 						<div id='tabs'>
 							<button onclick='switchTab(0)' class='switch1'>Stats</button>
@@ -81,7 +81,7 @@
 					<div id='tooltip'>
 					</div>
 				</div>
-
+				
 				<div id='mid1'>
 					<!-- STATS -->
 						<!-- Statistics -->
@@ -94,15 +94,15 @@
 						</div>
 						<!-- Bought Upgrades -->
 						<div id='subtab1'>
-							<h4>Upgrades</h4>
+							<h4>Upgrades</h4> <p id='up'></p>
 							<div id='bu'></div>
 						</div>
 						<!-- Achievements -->
 						<div id='subtab2'>
-							<h4>Achievements</h4>
+							<h4>Achievements</h4> <p id='ap'></p>
 							<div id='ua'></div>
 						</div>
-
+					
 					<!-- SETTINGS -->
 						<!-- Options -->
 						<div id='subtab3'>
@@ -119,10 +119,11 @@
 						<!-- Info -->
 						<div id='subtab5'>
 							<h4>Info</h4>
-							<a href='html/howto.html'>How To Play</a>
+							<a href='html/howto.html'>How To Play</a><br>
+							<a href='https://github.com/Reinhardt-C/Ripoff-Idle'>Source Code</a>
 						</div>
 				</div>
-
+				
 				<div id='mid2'>
 					<div id='shopdiv'>
 						<span id='bulkspan'><p>Buy Amount: </p><input id='bulk' value='1' style='width: 90px;' /><button onclick='togglebm()'>Toggle Buy Max</button><p id='bmstate'> Off</p></span>
@@ -160,14 +161,14 @@
 						</div>
 					</div>
 				</div>
-
+				
 				<div id='right'>
 					<div id='upgradesdiv'>
 						<p id='upgTxt'>Upgrades</p>
 						<div id='upgradescontainer'>
 						</div>
 					</div>
-
+					
 					<div id='buildingsdiv'>
 						<hr>
 						<p>Buildings</p>
@@ -229,8 +230,8 @@
 				</div>
 			</div>
 		</div>
-
-
+		
+		
 		<script>
 			let game;
 			init();

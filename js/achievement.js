@@ -10,6 +10,7 @@ class Achievement {
 	updUnlock() {
 		if (this.unlockReq() && !this.unlocked) {
 			new AchievementPopup(this.id).popup();
+			game.unlockedAchievements++;
 		}
 		this.unlocked = this.unlockReq();
 		return this.unlockReq();
