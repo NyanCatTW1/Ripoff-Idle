@@ -3,14 +3,18 @@ function setElems() {
 	setElem('tps', `TPS: ${displayNum(game.tps)}&nbsp&nbsp`);
 	setElem('tpsc', `${displayNum(game.tpsc)}`);
 	setElem('cookiecount', `${displayNum(game.cookies, true)}`);
-
+	
 	if (game.subtab == 0) {
 		setElem('statcookies', `Cookies: ${displayNum(game.cookies, true)}`);
 		setElem('stattotalcookies', `Total Baked Cookies: ${displayNum(game.totalProdCookies, true)}`);
 		setElem('statcookieclicks', `Cookie Clicks: ${game.cookieClicks}`);
 		setElem('statcps', `Cookies per Second: ${displayNum(game.cps)}`);
+	} else if (game.subtab == 1)  {
+		setElem('up', `${game.boughtUpgrades} / ${game.upgrades.length}`);
+	} else if (game.subtab == 2)  {
+		setElem('ap', `${game.unlockedAchievements} / ${game.achievements.length}`);
 	}
-
+	
 	setElem('tooltip', game.tooltip);
 	document.getElementById('tooltip').style.fontSize = 'initial';
 	let tempSize = 20;
@@ -18,7 +22,7 @@ function setElems() {
 		tempSize--;
 		document.getElementById('tooltip').style.fontSize = `${tempSize}px`;
 	}
-
+	
 	if (game.autosave) {
 		setElem('asstate', ' On');
 	} else {

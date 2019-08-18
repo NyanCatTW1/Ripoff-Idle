@@ -35,9 +35,11 @@ function save() {
 
 // Clear the save file
 function wipe() {
-	delete localStorage['save'];
-	setup();
-	save();
+	if (confirm('Do you want to delete ALL of your progress?!?')) {
+		delete localStorage['save'];
+		setup();
+		save();
+	}
 }
 
 // Retrieve your data from the depths of the localStorage variable...
