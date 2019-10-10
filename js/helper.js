@@ -75,14 +75,6 @@ function setdisp(id, val) {
 	document.getElementById(id).style.display = val;
 }
 
-function show(id) {
-	setdisp(id, 'block');
-}
-
-function hide(id) {
-	setdisp(id, 'none');
-}
-
 function maxOf(typeId, dim) {
 	return Decimal.affordGeometricSeries(game.cookies, game.generators[typeId][dim].dimBasePrice, new Decimal(1.15), game.generators[typeId][dim].bought);
 }

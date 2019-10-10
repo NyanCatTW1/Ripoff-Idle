@@ -22,7 +22,7 @@
 
 // Chuck your data into the depths of the localStorage variable...
 function save() {
-	localStorage.setItem('save', JSON.stringify(game));
+	localStorage.setItem('ri-save', JSON.stringify(game));
 	var x = document.getElementById("autosave");
 	x.className = "show";
 	setTimeout(function () {
@@ -36,7 +36,7 @@ function save() {
 // Clear the save file
 function wipe() {
 	if (confirm('Do you want to delete ALL of your progress?!?')) {
-		delete localStorage['save'];
+		delete localStorage['ri-save'];
 		setup();
 		save();
 	}
@@ -44,8 +44,8 @@ function wipe() {
 
 // Retrieve your data from the depths of the localStorage variable...
 function load() {
-	if (localStorage.getItem('save') != undefined && localStorage.getItem('save') != 'undefined' && localStorage.getItem('save') != null) {
-		game = new Game(JSON.parse(localStorage.getItem('save')));
+	if (localStorage.getItem('ri-save') != undefined && localStorage.getItem('ri-save') != 'undefined' && localStorage.getItem('ri-save') != null) {
+		game = new Game(JSON.parse(localStorage.getItem('ri-save')));
 		return true;
 	} else {
 		return false;
